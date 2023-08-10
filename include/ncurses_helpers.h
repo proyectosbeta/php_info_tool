@@ -4,6 +4,6 @@
 #include <ncurses.h>
 
 WINDOW *createWindow(int y, int x, int height, int width);
-void printTextInArea(WINDOW *win, int y, int x, int height, int width, const char *text);
+void printTextInArea(WINDOW *win, int y, int x, int height, int width, const char *title, const char *text);
 
 #endif

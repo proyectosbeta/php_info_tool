@@ -8,6 +8,7 @@
 typedef struct
 {
     int y, x, height, width;
+    const char *title;
     const char *text;
 } AreaSection;
 
@@ -32,15 +33,15 @@ int main()
     getOpcacheInfo(opCacheInfo, sizeof(opCacheInfo));
 
     AreaSection sections[] = {
-        {2, 2, top_height, width, phpVersion},
-        {2 + top_height, 2, bottom_height, width / 2, opCacheInfo},
-        {2 + top_height, 4 + width / 2, bottom_height, width / 2, "Xdebug"}};
+        {2, 2, top_height, width, " PHP Information ", phpVersion},
+        {2 + top_height, 2, bottom_height, width / 2, " Opcache Information ", opCacheInfo},
+        {2 + top_height, 4 + width / 2, bottom_height, width / 2, " Opcache Xdebug ", "Xdebug"}};
 
     // Create and display the areas
     for (int i = 0; i < sizeof(sections) / sizeof(sections[0]); i++)
     {
         WINDOW *win = createWindow(sections[i].y, sections[i].x, sections[i].height, sections[i].width);
-        printTextInArea(win, 0, 0, sections[i].height, sections[i].width, sections[i].text);
+        printTextInArea(win, 0, 0, sections[i].height, sections[i].width, sections[i].title, sections[i].text);
     }
 
     // Wait for the user to press the 'q' key to exit

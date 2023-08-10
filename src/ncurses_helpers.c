@@ -8,9 +8,10 @@ WINDOW *createWindow(int y, int x, int height, int width)
     return win;
 }
 
-void printTextInArea(WINDOW *win, int y, int x, int height, int width, const char *text)
+void printTextInArea(WINDOW *win, int y, int x, int height, int width, const char *title, const char *text)
 {
     box(win, 0, 0);
-    mvwprintw(win, y + 1, x + 1, "%s", text);
+    mvwprintw(win, y, x + 15, "%s", title);
+    mvwprintw(win, y + 2, x + 2, "%s", text);
     wrefresh(win);
 }

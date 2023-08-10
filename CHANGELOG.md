@@ -4,3 +4,4 @@
 
 - [feat] Introduce a Command Line Tool for Displaying PHP Information
 - [build] Improve on the Makefile
+- [feat] Introduce titles in sections
